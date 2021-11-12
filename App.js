@@ -16,11 +16,12 @@ import {
   View,
   TouchableHighlight,
   FlatList,
+  ScrollView,
 } from 'react-native';
 
 const App = () => {
   return (
-    <View style={styles.contenedorPadre}>
+    <ScrollView contentContainerStyle={styles.contenedorPadre}>
       <View style={styles.carta}>
         <View>
           <Image
@@ -33,6 +34,8 @@ const App = () => {
           <TextInput style={styles.camposTexto} 
             placeholder='Email'
           />
+
+
 
           <TextInput style={styles.camposTexto} 
             placeholder='Contraseña'
@@ -51,7 +54,7 @@ const App = () => {
           </TouchableHighlight>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -103,8 +106,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFDEB4',
     padding: 30,
     borderRadius: 20,
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   
 });
