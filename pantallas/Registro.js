@@ -6,10 +6,13 @@ import {
   TextInput,
   TouchableHighlight,
   StyleSheet,
-  Alert
+  Alert,
 } from 'react-native';
 
-const Registro = () => {
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+const Registro = ({navigation}) => {
   const [nombreUsuario, guardarNombre] = React.useState('');
   const [email, guardarEmail] = React.useState('');
   const [pass, guardarPass] = React.useState('');
