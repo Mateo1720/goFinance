@@ -30,7 +30,7 @@ const Login = ({navigation}) => {
 
           <TextInput style={styles.camposTexto} placeholder="Contraseña" />
 
-          <TouchableHighlight style={styles.botones}>
+          <TouchableHighlight style={styles.botones} onPress={() => navigation.navigate('Inicio')}>
             <Text style={styles.letraBotones}>Iniciar sesión</Text>
           </TouchableHighlight>
 
