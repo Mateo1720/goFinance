@@ -26,6 +26,9 @@ import Login from './pantallas/Login';
 import Registro from './pantallas/Registro';
 import SplashScreen from './pantallas/SplashScreen';
 import Inicio from './pantallas/Inicio';
+import Ingresos from './pantallas/Ingresos';
+import Egresos from './pantallas/Egresos';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -33,10 +36,12 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Splash'>
-        <Stack.Screen name='Splash' component={SplashScreen}/>
+        <Stack.Screen name='Splash' component={SplashScreen} options={{headerShown: false}}/>
         <Stack.Screen name='Inicio de sesión' component={Login}/>
         <Stack.Screen name='Registro' component={Registro}/>
         <Stack.Screen name='Inicio' component={Inicio}/>
+        <Stack.Screen name='Ingresos' component={Ingresos}/>
+        <Stack.Screen name='Egresos' component={Egresos}/>
       </Stack.Navigator>
       
     </NavigationContainer>

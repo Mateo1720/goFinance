@@ -13,9 +13,8 @@ import Item from '../componentes/Item';
 
 
 const Inicio = ({navigation}) => {
-    const data = [
-        {
-          id: '1',
+    const data = [{
+      id: '1',
           tipo: 'ingreso',
           valor: 100000,
         },
@@ -34,70 +33,16 @@ const Inicio = ({navigation}) => {
           tipo: 'ingreso',
           valor: 600000,
         },
-        {
-          id: '5',
-          tipo: 'ingreso',
-          valor: 5000000,
-        },
-        {
-          id: '6',
-          tipo: 'ingreso',
-          valor: 50780000,
-        },
-        {
-          id: '7',
-          tipo: 'egreso',
-          valor: 78900000,
-        },
-        {
-          id: '8',
-          tipo: 'ingreso',
-          valor: 600000,
-        },
-        {
-          id: '9',
-          tipo: 'egreso',
-          valor: 6890000,
-        },
-        {
-          id: '10',
-          tipo: 'ingreso',
-          valor: 70000,
-        },
-        {
-          id: '11',
-          tipo: 'egreso',
-          valor: 8000,
-        },
-        {
-          id: '12',
-          tipo: 'egreso',
-          valor: 570000,
-        },
-        {
-          id: '13',
-          tipo: 'ingreso',
-          valor: 6700000,
-        },
-        {
-          id: '14',
-          tipo: 'ingreso',
-          valor: 6000000,
-        },
-        {
-          id: '15',
-          tipo: 'egreso',
-          valor: 300000,
-        },
-      ];
+
+    ];
   return (
     <View style={{padding: 10, flex: 1}}>
       <View style={styles.contenedorBotones}>
-        <TouchableHighlight style={styles.botones}>
+        <TouchableHighlight style={styles.botones} onPress={()=> navigation.navigate('Ingresos')}>
           <Text style={styles.letraBotones}>Ingresos</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight style={styles.botones}>
+        <TouchableHighlight style={styles.botones} onPress={()=> navigation.navigate('Egresos')}>
           <Text style={styles.letraBotones}>Egresos</Text>
         </TouchableHighlight>
       </View>
