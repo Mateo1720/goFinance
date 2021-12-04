@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -10,39 +10,32 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Item from '../componentes/Item';
 
-
+const api = 'http://192.168.1.6:3000';
 
 const Inicio = ({navigation}) => {
-    const data = [{
-      id: '1',
-          tipo: 'ingreso',
-          valor: 100000,
-        },
-        {
-          id: '2',
-          tipo: 'egreso',
-          valor: 2000000,
-        },
-        {
-          id: '3',
-          tipo: 'ingreso',
-          valor: 800000,
-        },
-        {
-          id: '4',
-          tipo: 'ingreso',
-          valor: 600000,
-        },
+  const [data, setData] = useState('');
 
-    ];
+  fetch(api + '/obtener')
+    .then(response => response.json())
+    .then(json => {
+      setData(json);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+
   return (
     <View style={{padding: 10, flex: 1}}>
       <View style={styles.contenedorBotones}>
-        <TouchableHighlight style={styles.botones} onPress={()=> navigation.navigate('Ingresos')}>
+        <TouchableHighlight
+          style={styles.botones}
+          onPress={() => navigation.navigate('Ingresos')}>
           <Text style={styles.letraBotones}>Ingresos</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight style={styles.botones} onPress={()=> navigation.navigate('Egresos')}>
+        <TouchableHighlight
+          style={styles.botones}
+          onPress={() => navigation.navigate('Egresos')}>
           <Text style={styles.letraBotones}>Egresos</Text>
         </TouchableHighlight>
       </View>

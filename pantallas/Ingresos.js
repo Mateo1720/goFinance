@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -8,9 +8,24 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-
+const api = 'http://192.168.1.6:3000';
 
 const Ingresos = ({navigation}) => {
+  const [ingreso, setIngreso] = React.useState('');
+
+  const ingresar =  () => {
+     fetch(api + '/ingresar', {
+      method: 'POST',
+      headers: {
+        
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        tipo: 'ingreso',
+        valor: ingreso,
+      }),
+    });
+  };
   return (
     <ScrollView contentContainerStyle={styles.contenedorPadre}>
       <View style={styles.carta}>
@@ -18,11 +33,10 @@ const Ingresos = ({navigation}) => {
           <TextInput
             style={styles.camposTexto}
             placeholder="Ingresa el valor"
+            onChangeText={ingreso => setIngreso(ingreso)}
           />
 
-          <TouchableHighlight
-            style={styles.botones}
-            onPress={() => navigation.navigate('Inicio')}>
+          <TouchableHighlight style={styles.botones} onPress={() => ingresar()}>
             <Text style={styles.letraBotones}>Guardar</Text>
           </TouchableHighlight>
         </View>
